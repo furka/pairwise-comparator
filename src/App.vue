@@ -123,6 +123,10 @@ function selectItem(winner) {
   <div class="app">
     <template v-if="appData.items.length === 0">
       <ImageUpload :app-data="appData" @done="addItems" />
+      <span class="app__note">
+        Note: The selected images are <b><u>not uploaded</u></b> to a server,
+        and will be kept locally in your browser.
+      </span>
     </template>
     <template v-if="appData.pair.length > 0">
       <ProgressBar :app-data="appData" />
@@ -163,6 +167,11 @@ function selectItem(winner) {
   justify-content: center;
   min-height: 100vh;
   flex-direction: column;
+
+  &__note {
+    padding: 32px;
+    font-family: monospace;
+  }
 }
 .winner {
   align-items: center;
